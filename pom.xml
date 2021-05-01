@@ -74,6 +74,21 @@
 			<artifactId>hibernate-validator</artifactId>
 			<version>6.0.10.Final</version>
 		</dependency>
+		<dependency>
+			<groupId>com.github.chhsiao90</groupId>
+			<artifactId>modelmapper-module-jsr310</artifactId>
+			<version>1.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.10.3</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.persistence</groupId>
+			<artifactId>javax.persistence-api</artifactId>
+			<version>2.2</version>
+		</dependency>
 	</dependencies>
 
 	<build>
