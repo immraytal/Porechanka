@@ -1,7 +1,11 @@
 package com.kisel.Porechanka;
 
+import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
+import org.modelmapper.ModelMapper;
+import org.modelmapper.module.jsr310.Jsr310Module;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class PorechankaApplication {
@@ -10,4 +14,10 @@ public class PorechankaApplication {
 		SpringApplication.run(PorechankaApplication.class, args);
 	}
 
+	@Bean
+	public ModelMapper getModelMapper() {
+		ModelMapper modelMapper = new ModelMapper();
+		modelMapper.registerModule(new Jsr310Module());
+		return modelMapper;
+	}
 }
