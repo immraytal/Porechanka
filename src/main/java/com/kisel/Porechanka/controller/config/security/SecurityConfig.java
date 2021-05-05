@@ -1,8 +1,9 @@
-package com.kisel.Porechanka.controller;
+package com.kisel.Porechanka.controller.config.security;
 
 import com.kisel.Porechanka.controller.config.filters.AuthenticationFilter;
 import com.kisel.Porechanka.controller.config.filters.JwtCheckFilter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -24,6 +25,7 @@ import org.springframework.security.web.access.AccessDeniedHandler;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+    @Qualifier("userServiceImpl")
     @Autowired
     private UserDetailsService userDetailsService;
 
@@ -67,7 +69,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    public JwtCheckFilter jwtCheckFilter(UserDetailsService userDetailsService) {
+    public JwtCheckFilter jwtCheckFilter(@Qualifier("userServiceImpl") UserDetailsService userDetailsService) {
         return new JwtCheckFilter(authenticationManager(), userDetailsService);
     }
 

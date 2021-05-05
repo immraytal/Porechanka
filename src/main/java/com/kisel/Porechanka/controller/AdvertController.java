@@ -13,8 +13,10 @@ import com.kisel.Porechanka.util.validator.ValidationUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,7 +31,10 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.validation.ValidationException;
 import java.util.List;
 
+import static java.util.List.of;
+
 @RestController
+@CrossOrigin(origins = "http://localhost:3000", maxAge = 3600)
 @RequestMapping("/adverts")
 public class AdvertController {
 
@@ -45,12 +50,12 @@ public class AdvertController {
     private SecurityUtils securityUtils;
 
     @GetMapping
-    public List<AdvertDto> getAdverts(@RequestParam(value = "page", defaultValue = DefaultValue.COUNT_PAGES_OF_ADVERTS) int page,
+    public ResponseEntity<Object> getAdverts(@RequestParam(value = "page", defaultValue = DefaultValue.COUNT_PAGES_OF_ADVERTS) int page,
                                       @RequestParam(value = "size", defaultValue = DefaultValue.COUNT_ADVERTS_ON_PAGE) int size,
                                       @RequestParam(value = "order", defaultValue = DefaultValue.NO_ORDER_VARIATION) String order,
                                       @RequestParam(value = "category", defaultValue = DefaultValue.ADVERT_CATEGORY) Long category,
                                       @RequestParam(value = "search", defaultValue = DefaultValue.EMPRY_STRING) String search) {
-        return advertService.getAll(category, page, size, order, search);
+        return new ResponseEntity<Object>(advertService.getAll(category, page, size, order, search), HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
