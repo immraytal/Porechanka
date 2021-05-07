@@ -2,15 +2,18 @@ package com.kisel.Porechanka.model.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonRootName;
+import lombok.Data;
 
 import java.math.BigDecimal;
 
 @JsonRootName("advertCreateUpdateDto")
+@Data
 public class AdvertCreateAndUpdateDto {
     private String title;
     private String body;
     private BigDecimal price;
     private Long categoryId;
+    private String photoUrl;
 
     @JsonIgnore
     private Long sellerId;

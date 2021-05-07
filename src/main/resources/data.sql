@@ -68,44 +68,53 @@ insert into chat_messages(user_id, chat_id, text_msg, created_date, created_time
 values (5, 3, 'nope', '2020-04-12', '16:11:51');
 
 insert into advert_categories(name, description)
-values ('Auto and transport', 'Adverts for sale of cars and various transport');
+values ('Авто, запчасти б/у', 'Авто, запчасти б/у');
 insert into advert_categories(name, description)
-values ('Electronic', 'Adverts for sale of some electronics');
+values ('Книги и журналы, литература, б/у', 'Книги и журналы, художественная литература, б/у');
 insert into advert_categories(name, description)
-values ('Clothes', 'Just clothes');
+values ('Одежда', 'Одежда');
 insert into advert_categories(name, description)
-values ('Book', 'no comments');
+values ('Ящики, коробки, корзины', 'Ящики, коробки, корзины');
+insert into advert_categories(name, description)
+values ('Бытовая техника', 'Бытовая техника');
+insert into advert_categories(name, description)
+values ('Домашние питомцы', 'Домашние питомцы');
 
-insert into adverts(title, body, price, category_id, advert_status, open_date, open_time, seller_id, is_paid)
-values ('Id to sell this boat', 'some pic and some description', 3000.12, 1, 'OPENED', '2020-01-01', '12:11:45', 2,
-        true);
+insert into adverts(title, body, price, category_id, advert_status, open_date, open_time, seller_id, is_paid, photo_url)
+values ('Корзинка плетёная', 'Плетёная корзинка для мелочевки или для конфет.
+', 10, 4, 'OPENED', '2021-04-02', '12:11:45', 2,
+        true, 'https://cs1.livemaster.ru/storage/23/a2/c20645c76301b5d0bafdc379b0wx--dlya-doma-i-interera-pletenaya-korzina-gribnaya-klassika.jpg');
 
-insert into adverts(title, body, price, category_id, advert_status, open_date, open_time, seller_id, is_paid)
-values ('Awesome clothes', 'Clothes play a big role in our life. We wear clothes to differ from others, showing our innodividuality. Fashion is constantly changing, so everyone chooses his own style. And this style may be both in vogue and out of fashion. But it doesn’t matter as long as a person likes it.
+insert into adverts(title, body, price, category_id, advert_status, open_date, open_time, seller_id, is_paid, photo_url)
+values ('Опель Астра F по запчастям 1993 год', 'продается по запчастям', -1, 1, 'OPENED', '2021-02-21', '13:21:55', 5, true, 'https://cache3.youla.io/files/images/360_360/5d/e1/5de135a3e7696a70202b23f2.jpg');
 
-We can wear whatever we want. But this rule applies only to home clothing. When we are within a society, we must adhere to some limits. Especially it refers to school clothes or as they say – school uniform. In most countries uniforms are mandatory.', -1, 3, 'OPENED', '2019-10-21', '13:21:55', 5, true);
+insert into adverts(title, body, price, category_id, advert_status, open_date, open_time, seller_id, is_paid, photo_url)
+values ('Штамм. Трилогия (Гильермо дель Торо/Чак Хоган)', 'Стивен Кинг рекомендует! Трилогия Гильермо дель Торо и Чака ' ||
+ 'Хогана о вампирах известна по экранизации в одноименном телесериале канала FX. Сериал интересный, ' ||
+  'но после прочтения книги вся история становится гораздо понятнее и логичнее. Трилогия аккуратно прочитана 1 раз, ' ||
+   'в магазинах (как и на куфаре) уже давно не найти. Издание красивое, бумага белая и плотная, книги приятно держать в руках. ' ||
+    'Цена указана за все три книги, по отдельности не продаются. В подарок закладка. Без торга, обмена и пересылки. ' ||
+     'Только самовывоз (400м от Катюши).',
+     40, 2, 'OPENED', '2021-02-18', '17:26:12', 5, true, 'https://cache3.youla.io/files/images/720_720_out/58/d0/58d00ae4e57ad42f227bf2bb.jpg');
 
-insert into adverts(title, body, price, category_id, advert_status, open_date, open_time, seller_id, is_paid)
-values ('Another cool boat', 'The coolest boat ever', 200, 1, 'OPENED', '2020-02-18', '17:26:12', 5, true);
+insert into adverts(title, body, price, category_id, advert_status, open_date, open_time, seller_id, is_paid, photo_url)
+values ('Плащ женский синий', 'Плащ женский размер 42-44
+', 20, 3, 'OPENED', '2011-02-02', '18:21:32',
+        3, true, 'https://www.pohodd.ru/f/1c/import_files/68/6867124a-9462-11e6-a781-000c292c96e8_61e2c3ca-107b-11e7-92f5-000c292c96e8.jpg');
 
-insert into adverts(title, body, price, category_id, advert_status, open_date, open_time, seller_id, is_paid)
-values ('Cellphone NOKIA3310', 'can break bricks and the face your neighbor', 5, 2, 'OPENED', '2018-02-02', '18:21:32',
-        3, true);
+insert into adverts(title, body, price, category_id, advert_status, open_date, open_time, seller_id, is_paid, photo_url)
+values ('Стиральная машина BOSCH', 'Стиральная машина Bosch WAT24442BL', 240, 4, 'OPENED',
+        '2020-04-11', '12:11:45', 5, false, 'https://st21.stpulscen.ru/images/product/321/058/835_big.jpg');
 
-insert into adverts(title, body, price, category_id, advert_status, open_date, open_time, seller_id, is_paid)
-values ('Herb Schildts Java Programming Cookbook', 'ISBN 0-07-226315-6, Osborne/McGraw Hill, 2007', 120, 4, 'OPENED',
-        '2020-01-01', '12:11:45', 4, false);
+insert into adverts(title, body, price, category_id, advert_status, open_date, open_time, seller_id, is_paid, photo_url)
+values ('Щенки в добрые руки', 'В добрые руки !!Ищем дом для этих прекрасных щенков
+Нашли щенков в стволе дерева ,безумно красивые и умные ! Уже самостоятельно едят . Переживаем об их дальнейшей судьбе ,тк скоро вырастут и могут разбежаться.
+Поможем с доставкой домой', 0, 6, 'OPENED',
+        '2021-04-11', '12:11:45', 5, false, 'https://gde.ru/images/img_ru/124x124/2c/32/2c32b5761ba84b8f4634833f7bc0ccb2.jpg');
 
-insert into adverts(title, body, price, category_id, advert_status, open_date, open_time, seller_id, is_paid,
-                    close_date, close_time, buyer_id)
-values ('Id to sell this boat', 'some pic and some description', 100, 1, 'CLOSED', '2020-01-01', '12:11:45', 2, false,
-        '2020-06-10', '12:00:01', 1);
-
-insert into adverts(title, body, price, category_id, advert_status, open_date, open_time, seller_id, is_paid)
-values ('deleted', 'update and then deleted', 10, 1, 'DELETED', '2018-11-23', '22:31:58', 2, false);
-
-insert into adverts(title, body, price, category_id, advert_status, open_date, open_time, seller_id, is_paid)
-values ('very expensive', 'really very and without top', 9999999, 1, 'OPENED', '2020-02-05', '21:01:32', 1, false);
+insert into adverts(title, body, price, category_id, advert_status, open_date, open_time, seller_id, is_paid, photo_url)
+values ('Котёнок в добрые руки', 'Приютите бедного котёнка', 0, 6, 'OPENED',
+        '2021-02-23', '12:11:45', 5, false, 'https://86.img.avito.st/640x480/8949619986.jpg');
 
 insert into advert_payments_for_top(paid_for_date, advert_id, verify_code)
 values ('2020-10-05', 1, 'QWERTY');

@@ -11,31 +11,45 @@ function Advert() {
       });
   }, []);
 
-  function getDecription(str) {
-    let decr = str.slice(0, 128);
-    if (str.length > decr.length) {
-      return decr.concat("...");
+  function getPhoto(photoUrl) {
+    return <img src={photoUrl} alt="new" width="200" height="125" />;
+  }
+
+  function getPrice(price) {
+    if (price === 0) {
+      return ("Бесплатно")
+    } else if (price < 0) {
+      return ("Цена договорная")
     } else {
-      return decr;
+      return (price + " BYN")
     }
   }
 
   return (
     <ul className="advert-items-ul">
       {adverts.map((a) => (
-        <li className="advert-items-li" key={a.id}>
-          <div className="advert-header">
-            <div className="advert-name">{a.title}</div>
-            <div className="advert-price">
-              {a.price > 0 ? a.price + " BYN" : "Цена договорная"}
+        <li>
+          <div className="advert-items-li">
+            <div className="advert-photo-li">
+              {getPhoto(a.photoUrl)}
             </div>
-          </div>
-          <div className="advert-body">
-            <div className="advert-body-description">
-              {getDecription(String(a.body))}
-            </div>
-            <div className="advert-time">
-              {a.openTime} {a.openDate}
+            <div className="advert-base-info-li">
+              <div className="advert-base-info-header-li">
+                <div className="advert-base-info-header-title-li">
+                  {a.title}
+                </div>
+                <div className="advert-base-info-header-category-li">
+                  {a.category.name}
+                </div>
+              </div>
+              <div className="advert-base-info-body-li">
+                <div className="advert-base-info-body-price-li">
+                  {getPrice(a.price)}
+                </div>
+                <div className="advert-base-info-body-date-li">
+                  {a.openTime} {a.openDate}
+                </div>
+              </div>
             </div>
           </div>
         </li>

@@ -8,6 +8,7 @@ import com.fasterxml.jackson.datatype.jsr310.deser.LocalTimeDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalTimeSerializer;
 import com.kisel.Porechanka.model.AdvertStatus;
+import lombok.Data;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -15,6 +16,7 @@ import java.time.LocalTime;
 import java.util.Objects;
 
 @JsonRootName("advert")
+@Data
 public class AdvertDto {
 
     private long id;
@@ -26,6 +28,8 @@ public class AdvertDto {
     private BigDecimal price;
 
     private AdvertStatus advertStatus;
+
+    private String photoUrl;
 
     @JsonSerialize(using = LocalTimeSerializer.class)
     @JsonDeserialize(using = LocalTimeDeserializer.class)

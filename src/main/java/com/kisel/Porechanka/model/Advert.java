@@ -71,6 +71,9 @@ public class Advert {
     @Column(name = "close_time")
     private LocalTime closeTime;
 
+    @Column(name = "photo_url")
+    private String photoUrl;
+
     @ManyToOne(
             cascade = {CascadeType.PERSIST, CascadeType.MERGE},
             fetch = FetchType.LAZY
@@ -206,6 +209,14 @@ public class Advert {
 
     public void setPrice(BigDecimal price) {
         this.price = price;
+    }
+
+    public String getPhotoUrl() {
+        return photoUrl;
+    }
+
+    public void setPhotoUrl(String photoUrl) {
+        this.photoUrl = photoUrl;
     }
 
     @Override

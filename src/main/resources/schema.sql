@@ -82,6 +82,7 @@ create table if not exists adverts
   open_date     date           not null,
   open_time     time           not null,
   close_date    date,
+  photo_url     varchar(256),
   close_time    time,
   seller_id     bigint         not null,
   is_paid       boolean        not null,

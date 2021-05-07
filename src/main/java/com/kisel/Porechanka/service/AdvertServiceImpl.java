@@ -120,6 +120,7 @@ public class AdvertServiceImpl implements AdvertService {
         advert.setCategory(advertCategoryDao.getById(advertCreateAndUpdateDto.getCategoryId()));
         advert.setPrice(advertCreateAndUpdateDto.getPrice());
         advert.setAdvertStatus(AdvertStatus.OPENED);
+        advert.setPhotoUrl(advertCreateAndUpdateDto.getPhotoUrl());
         advertDao.save(advert);
         LOG.info("Saving new advert " + advert.getId() + " id " + advert.getTitle());
         return modelMapper.map(advert, AdvertDto.class);
@@ -137,6 +138,7 @@ public class AdvertServiceImpl implements AdvertService {
             advert.setPrice(advertCreateAndUpdateDto.getPrice());
             advert.setCategory(advertCategoryDao.getById(advertCreateAndUpdateDto.getCategoryId()));
             advert.setAdvertStatus(AdvertStatus.OPENED);
+            advert.setPhotoUrl(advertCreateAndUpdateDto.getPhotoUrl());
             advertDao.update(advert);
             LOG.info("Updating new advert " + advert.getId() + " id " + advert.getTitle());
             return modelMapper.map(advert, AdvertDto.class);
