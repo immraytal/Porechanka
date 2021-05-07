@@ -1,12 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import App from './App'
+import Header from './Header';
 import './index.css';
-import MyComponent from './classes/MyComponent';
 import reportWebVitals from './reportWebVitals';
 
+document.title = 'Porechanka';
 ReactDOM.render(
-    <MyComponent />,
+    <App />,
   document.getElementById('root')
+);
+
+ReactDOM.render(
+  <Header />,
+document.getElementById('header')
 );
 
 // If you want to start measuring performance in your app, pass a function

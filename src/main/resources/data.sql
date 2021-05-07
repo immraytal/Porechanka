@@ -81,7 +81,9 @@ values ('Id to sell this boat', 'some pic and some description', 3000.12, 1, 'OP
         true);
 
 insert into adverts(title, body, price, category_id, advert_status, open_date, open_time, seller_id, is_paid)
-values ('Awesome clothes', 'Very beautiful clothes and socks', -1, 3, 'OPENED', '2019-10-21', '13:21:55', 5, true);
+values ('Awesome clothes', 'Clothes play a big role in our life. We wear clothes to differ from others, showing our innodividuality. Fashion is constantly changing, so everyone chooses his own style. And this style may be both in vogue and out of fashion. But it doesn’t matter as long as a person likes it.
+
+We can wear whatever we want. But this rule applies only to home clothing. When we are within a society, we must adhere to some limits. Especially it refers to school clothes or as they say – school uniform. In most countries uniforms are mandatory.', -1, 3, 'OPENED', '2019-10-21', '13:21:55', 5, true);
 
 insert into adverts(title, body, price, category_id, advert_status, open_date, open_time, seller_id, is_paid)
 values ('Another cool boat', 'The coolest boat ever', 200, 1, 'OPENED', '2020-02-18', '17:26:12', 5, true);
