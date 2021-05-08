@@ -1,9 +1,9 @@
 import "./App.css";
-import Advert from './classes/Advert'
+import AdvertsList from './classes/AdvertsList'
 
 function App() {
   return(
-    <Advert />
+    <AdvertsList />
   )
 }
 

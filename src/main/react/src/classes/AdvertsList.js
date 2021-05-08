@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-function Advert() {
+function AdvertsList() {
   const [adverts, setAdverts] = useState([]);
 
   useEffect(() => {
@@ -58,4 +58,4 @@ function Advert() {
   );
 }
 
-export default Advert;
+export default AdvertsList;

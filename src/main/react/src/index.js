@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App'
+import AdvertInfo from './classes/AdvertInfo';
 import Header from './Header';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 
 document.title = 'Porechanka';
 ReactDOM.render(
-    <App />,
+    <AdvertInfo advertId = {2}/>,
   document.getElementById('root')
 );
 
