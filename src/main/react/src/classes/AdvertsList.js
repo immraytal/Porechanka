@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { Link, NavLink } from "react-router-dom";
+import moment from 'moment/min/moment-with-locales';
 
 function AdvertsList() {
   const [adverts, setAdverts] = useState([]);
@@ -17,42 +19,48 @@ function AdvertsList() {
 
   function getPrice(price) {
     if (price === 0) {
-      return ("Бесплатно")
+      return "Бесплатно";
     } else if (price < 0) {
-      return ("Цена договорная")
+      return "Цена договорная";
     } else {
-      return (price + " BYN")
+      return price + " BYN";
     }
+  }
+
+  function getDateTime(openDate, openTime) {
+    var time = moment(openDate.concat(" ").concat(openTime));
+    moment.locale("ru");
+    return time.format("llll");
   }
 
   return (
     <ul className="advert-items-ul">
       {adverts.map((a) => (
-        <li>
-          <div className="advert-items-li">
-            <div className="advert-photo-li">
-              {getPhoto(a.photoUrl)}
-            </div>
-            <div className="advert-base-info-li">
-              <div className="advert-base-info-header-li">
-                <div className="advert-base-info-header-title-li">
-                  {a.title}
+        <Link style={{ textDecoration: "none" }} to={`/adverts/${a.id}`}>
+          <li>
+            <div className="advert-items-li">
+              <div className="advert-photo-li">{getPhoto(a.photoUrl)}</div>
+              <div className="advert-base-info-li">
+                <div className="advert-base-info-header-li">
+                  <div className="advert-base-info-header-title-li">
+                    {a.title}
+                  </div>
+                  <div className="advert-base-info-header-category-li">
+                    {a.category.name}
+                  </div>
                 </div>
-                <div className="advert-base-info-header-category-li">
-                  {a.category.name}
+                <div className="advert-base-info-body-li">
+                  <div className="advert-base-info-body-price-li">
+                    {getPrice(a.price)}
+                  </div>
+                  <div className="advert-base-info-body-date-li">
+                    {getDateTime(a.openDate, a.openTime)}
+                  </div>
                 </div>
               </div>
-              <div className="advert-base-info-body-li">
-                <div className="advert-base-info-body-price-li">
-                  {getPrice(a.price)}
-                </div>
-                <div className="advert-base-info-body-date-li">
-                  {a.openTime} {a.openDate}
-                </div>
-              </div>
             </div>
-          </div>
-        </li>
+          </li>
+        </Link>
       ))}
     </ul>
   );

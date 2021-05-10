@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import moment from 'moment/min/moment-with-locales';
 
-function AdvertInfo({ advertId }) {
+function AdvertInfo(props) {
   const [advert, setAdvert] = useState({
     id: 0,
     title: "",
@@ -37,7 +37,7 @@ function AdvertInfo({ advertId }) {
     paid: false,
   });
 
-  const url = "http://localhost:8080/adverts/".concat(advertId);
+  const url = "http://localhost:8080/adverts/".concat(props.match.params.advertId);
   useEffect(() => {
     fetch(url)
       .then((response) => response.json())
@@ -68,7 +68,7 @@ function AdvertInfo({ advertId }) {
   }
 
   return (
-    <div>
+    <div className="body">
       <div className="advert-info-category">{advert.category.name}</div>
       <div className="advert-body-info">
         <div className="advert-body-info-photo-description">
