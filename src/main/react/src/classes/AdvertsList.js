@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import moment from 'moment/min/moment-with-locales';
 
 function AdvertsList() {
@@ -36,7 +36,7 @@ function AdvertsList() {
   return (
     <ul className="advert-items-ul">
       {adverts.map((a) => (
-        <Link style={{ textDecoration: "none" }} to={`/adverts/${a.id}`}>
+        <Link key={a.id} style={{ textDecoration: "none", color: "black"}} to={`/adverts/${a.id}`}>
           <li>
             <div className="advert-items-li">
               <div className="advert-photo-li">{getPhoto(a.photoUrl)}</div>

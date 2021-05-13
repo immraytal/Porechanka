@@ -86,7 +86,7 @@ values ('Корзинка плетёная', 'Плетёная корзинка 
         true, 'https://cs1.livemaster.ru/storage/23/a2/c20645c76301b5d0bafdc379b0wx--dlya-doma-i-interera-pletenaya-korzina-gribnaya-klassika.jpg');
 
 insert into adverts(title, body, price, category_id, advert_status, open_date, open_time, seller_id, is_paid, photo_url)
-values ('Опель Астра F по запчастям 1993 год', 'продается по запчастям', -1, 1, 'OPENED', '2021-02-21', '13:21:55', 5, true, 'https://cache3.youla.io/files/images/360_360/5d/e1/5de135a3e7696a70202b23f2.jpg');
+values ('Опель Астра F по запчастям 1993 год', 'продается по запчастям', -1, 1, 'OPENED', '2021-02-21', '13:21:55', 3, true, 'https://cache3.youla.io/files/images/360_360/5d/e1/5de135a3e7696a70202b23f2.jpg');
 
 insert into adverts(title, body, price, category_id, advert_status, open_date, open_time, seller_id, is_paid, photo_url)
 values ('Штамм. Трилогия (Гильермо дель Торо/Чак Хоган)', 'Стивен Кинг рекомендует! Трилогия Гильермо дель Торо и Чака ' ||
@@ -95,12 +95,12 @@ values ('Штамм. Трилогия (Гильермо дель Торо/Чак
    'в магазинах (как и на куфаре) уже давно не найти. Издание красивое, бумага белая и плотная, книги приятно держать в руках. ' ||
     'Цена указана за все три книги, по отдельности не продаются. В подарок закладка. Без торга, обмена и пересылки. ' ||
      'Только самовывоз (400м от Катюши).',
-     40, 2, 'OPENED', '2021-02-18', '17:26:12', 5, true, 'https://cache3.youla.io/files/images/720_720_out/58/d0/58d00ae4e57ad42f227bf2bb.jpg');
+     40, 2, 'OPENED', '2021-02-18', '17:26:12', 1, true, 'https://cache3.youla.io/files/images/720_720_out/58/d0/58d00ae4e57ad42f227bf2bb.jpg');
 
 insert into adverts(title, body, price, category_id, advert_status, open_date, open_time, seller_id, is_paid, photo_url)
 values ('Плащ женский синий', 'Плащ женский размер 42-44
 ', 20, 3, 'OPENED', '2011-02-02', '18:21:32',
-        3, true, 'https://www.pohodd.ru/f/1c/import_files/68/6867124a-9462-11e6-a781-000c292c96e8_61e2c3ca-107b-11e7-92f5-000c292c96e8.jpg');
+        3, false, 'https://www.pohodd.ru/f/1c/import_files/68/6867124a-9462-11e6-a781-000c292c96e8_61e2c3ca-107b-11e7-92f5-000c292c96e8.jpg');
 
 insert into adverts(title, body, price, category_id, advert_status, open_date, open_time, seller_id, is_paid, photo_url)
 values ('Стиральная машина BOSCH', 'Стиральная машина Bosch WAT24442BL', 240, 4, 'OPENED',
