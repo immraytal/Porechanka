@@ -1,6 +1,8 @@
 import { Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { useHistory } from "react-router";
 
 function LoginPage() {
   const loginSchema = Yup.object().shape({
@@ -8,35 +10,32 @@ function LoginPage() {
     password: Yup.string().required("Обязательное"),
   });
 
+  const history = useHistory();
+  const [value, setValue] = useState();
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      history.push("/");
+    }
+  }, []);
+
   const sumbitLogin = async (values) => {
-    console.log(values);
-    const data = await fetch("http://localhost:8080/auth", {
-      method: "POST",
-      body: {
-        username: "root",
-        password: "rootroot",
-      },
-      //   headers: {
-      //     Vary: "Origin",
-      //     Vary: "Access-Control-Request-Method",
-      //     Vary: "Access-Control-Request-Headers",
-      //     "X-Content-Type-Options": "nosniff",
-      //     "X-XSS-Protection": "1; mode=block",
-      //     "Cache-Control": "no-cache, no-store, max-age=0, must-revalidate",
-      //     Pragma: "no-cache",
-      //     Expires: "0",
-      //     "X-Frame-Options": "DENY",
-      //     "Content-Type": "application/json",
-      //     "Transfer-Encoding": "chunked",
-      //     "Keep-Alive": "timeout=60",
-      //     Connection: "keep-alive",
-      //   },
-    });
-    console.log(data);
+    const data = await axios
+      .post("http://localhost:8080/login", {
+        login: values.login,
+        password: values.password,
+      })
+      .catch((err) => {
+        if (err.response.status === 401) {
+          alert("Неправильный логин или пароль");
+        }
+      });
+    localStorage.setItem("token", data.headers["authorization"]);
+    window.location.reload();
   };
 
   return (
-    <div>
+    <div className="login-form">
       <Formik
         initialValues={{
           login: "",

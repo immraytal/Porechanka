@@ -31,10 +31,8 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.validation.ValidationException;
 import java.util.List;
 
-import static java.util.List.of;
-
 @RestController
-@CrossOrigin(origins = "http://localhost:3000", maxAge = 3600)
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/adverts")
 public class AdvertController {
 

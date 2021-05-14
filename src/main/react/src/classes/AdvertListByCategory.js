@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import moment from 'moment/min/moment-with-locales';
+import moment from "moment/min/moment-with-locales";
 
-function AdvertsList() {
+function AdvertsListByCategory(props) {
   const [adverts, setAdverts] = useState([]);
-
-  console.log('advertList')
-
+  const url = "http://localhost:8080/adverts?category=".concat(
+    props.match.params.categoryId
+  );
+  console.log('category')
+  console.log(props.match.params.categoryId)
   useEffect(() => {
-    fetch("http://localhost:8080/adverts?size=10")
+    fetch(url)
       .then((response) => response.json())
       .then((adverts) => {
         setAdverts(adverts);
@@ -38,7 +40,11 @@ function AdvertsList() {
   return (
     <ul className="advert-items-ul">
       {adverts.map((a) => (
-        <Link key={a.id} style={{ textDecoration: "none", color: "black"}} to={`/adverts/${a.id}`}>
+        <Link
+          key={a.id}
+          style={{ textDecoration: "none", color: "black" }}
+          to={`/adverts/${a.id}`}
+        >
           <li>
             <div className="advert-items-li">
               <div className="advert-photo-li">{getPhoto(a.photoUrl)}</div>
@@ -48,8 +54,12 @@ function AdvertsList() {
                     {a.title}
                   </div>
                   <div className="advert-base-info-header-category-li">
-                  <Link key={a.id} style={{ textDecoration: "none", color: "black"}} to={`/adverts?category=${a.category.id}`}>
-                    {a.category.name}
+                    <Link
+                      key={a.id}
+                      style={{ textDecoration: "none", color: "black" }}
+                      to={`/adverts?category=${a.category.id}`}
+                    >
+                      {a.category.name}
                     </Link>
                   </div>
                 </div>
@@ -70,4 +80,4 @@ function AdvertsList() {
   );
 }
 
-export default AdvertsList;
+export default AdvertsListByCategory;

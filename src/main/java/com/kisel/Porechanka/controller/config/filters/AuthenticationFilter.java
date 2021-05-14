@@ -8,6 +8,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.http.HttpHeaders;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.LockedException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -44,6 +45,7 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
             UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(authDto.getLogin(), authDto.getPassword());
             return manager.authenticate(usernamePasswordAuthenticationToken);
         } catch (IOException e) {
+            LOG.error(request.toString());
             LOG.error("IOException, can't read user from JSON");
             throw new MyException("Incorrect json", e);
         } catch (LockedException e) {
@@ -56,6 +58,11 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
     protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authResult) throws IOException, ServletException {
         String jwtToken = tokenUtil.generateJwtToken(((User) authResult.getPrincipal()).getUsername(), authSecret);
         response.setHeader("Authorization", jwtToken);
+        response.setHeader(HttpHeaders.ACCESS_CONTROL_EXPOSE_HEADERS, HttpHeaders.DATE);
+        response.setHeader(HttpHeaders.ACCESS_CONTROL_EXPOSE_HEADERS, "Authorization");
+        response.setHeader(HttpHeaders.CONTENT_TYPE, "application/json");
+        response.getOutputStream().print(new ObjectMapper().writeValueAsString(jwtToken));
+        response.flushBuffer();
     }
 }
 

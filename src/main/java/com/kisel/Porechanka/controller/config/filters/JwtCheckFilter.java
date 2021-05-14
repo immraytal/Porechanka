@@ -2,7 +2,6 @@ package com.kisel.Porechanka.controller.config.filters;
 
 import com.kisel.Porechanka.util.MyException;
 import com.kisel.Porechanka.util.TokenUtil;
-import lombok.Data;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -65,7 +64,7 @@ public class JwtCheckFilter extends BasicAuthenticationFilter {
     }
 
     private String getToken(String token) {
-        return token.substring(7);
+        return token;
     }
 
 }
